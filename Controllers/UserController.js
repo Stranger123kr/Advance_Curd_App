@@ -212,7 +212,7 @@ const UserExport = async (req, res) => {
     csvStream.pipe(WritableStream);
     WritableStream.on("finish", function () {
       res.status(200).json({
-        downloadUrl: `http://localhost:5000/files/export/${date}-users.csv`,
+        downloadUrl: `${process.env.BASE_URL}/files/export/${date}-users.csv`,
       });
     });
 
